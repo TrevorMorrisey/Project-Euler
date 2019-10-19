@@ -12,7 +12,7 @@ def getFibNumber(index, fibDict):
     if index in fibDict:
         return fibDict[index]
     else:
-        fibDict[index] = getFibNumber(index - 1) + getFibNumber(index - 2)
+        fibDict[index] = getFibNumber(index - 1, fibDict) + getFibNumber(index - 2, fibDict)
         return fibDict[index]
     
 def getFactors(number):
@@ -44,6 +44,14 @@ def isPrime(number):
         index += 2
     
     return True
+
+def convertNumStringToList(string):
+    numList = string.split(' ')
+
+    for i in range(len(numList)):
+        numList[i] = int(numList[i])
+    
+    return numList
 
 def isPalindrome(string):
     if len(string) == 1 or len(string) == 0:
