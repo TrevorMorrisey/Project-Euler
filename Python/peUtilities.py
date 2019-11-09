@@ -16,15 +16,15 @@ def getFibNumber(index, fibDict):
         return fibDict[index]
     
 def getFactors(number):
-    #upperBound = number - 1
     index = 1
     factors = []
     
     while index <= math.sqrt(number):
         if number % index == 0:
             factors.append(index)
-            factors.append(number // index)
-            #upperBound = number / index
+            #factors.append(number // index)
+            if (number // index) != index:
+                factors.append(number // index)
         index += 1
     
     return factors
@@ -71,3 +71,29 @@ def isPalindrome(string):
         else:
             return isPalindrome(string[1:len(string) - 1])
         
+def integerToList(number):
+    numList = []
+    numString = str(number)
+    for digit in numString:
+        numList.append(int(digit))
+    return numList
+
+def isPermutation(number1, number2):
+    list1 = integerToList(number1)
+    list2 = integerToList(number2)
+    
+    if len(list1) != len(list2):
+        return False
+    
+    list1.sort()
+    list2.sort()
+    
+    for i in range(len(list1)):
+        if list1[i] != list2[i]:
+            return False
+    
+    return True
+    
+    
+    
+    
