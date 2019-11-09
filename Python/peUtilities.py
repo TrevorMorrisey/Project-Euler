@@ -93,7 +93,65 @@ def isPermutation(number1, number2):
             return False
     
     return True
+
+def isSquare(number):
+    root = math.sqrt(number)
+    return root == int(root)
+
+def isTriangular(number):
+    for triangle in yieldTriangleNum():
+        if triangle > number:
+            return False
+        if triangle == number:
+            return True
+        
+def isPentagonal(number):
+    for pentagon in yieldPentagonNum():
+        if pentagon > number:
+            return False
+        if pentagon == number:
+            return True
+
+def isHexagonal(number):
+    for hexagon in yieldHexagonNum():
+        if hexagon > number:
+            return False
+        if hexagon == number:
+            return True
     
-    
+def yieldTriangleNum():
+    counter = 0
+    while True:
+        counter += 1
+        triangle = counter + 1
+        triangle *= counter
+        triangle /= 2
+        yield int(triangle)
+
+def yieldPentagonNum():
+    counter = 0
+    while True:
+        counter += 1
+        pentagon = 3 * counter
+        pentagon -= 1
+        pentagon *= counter
+        pentagon /= 2
+        yield int(pentagon)
+        
+def yieldHexagonNum():
+    counter = 0
+    while True:
+        counter += 1
+        hexagon = 2 * counter
+        hexagon -= 1
+        hexagon *= counter
+        yield int(hexagon)       
+        
+        
+
+
+
+
+
     
     
