@@ -45,6 +45,13 @@ def isPrime(number):
     
     return True
 
+def yieldPrime():
+    counter = 2
+    while True:
+        if isPrime(counter):
+            yield counter
+        counter += 1
+
 def convertNumStringToList(string):
     numList = string.split(' ')
 
